@@ -26,6 +26,8 @@
     "CHANGELOG.md"
   ],
   "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "6.22.x",
     "backbone": ">=1.3.x",
     "gulp": ">=3.9.x",
     "tape": ">=4.x.x",

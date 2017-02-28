@@ -43,7 +43,7 @@ test('Comparison, Evaluation, and Element Operators', function (t) {
   ]
 
   queries.forEach(function (q) {
-    t.ok(Mingo.Query(q[0]).test(obj), q[1])
+    t.ok(new Mingo.Query(q[0]).test(obj), q[1])
   })
 })
 
@@ -60,9 +60,9 @@ test('Projection Operators', function (t) {
       key1a: {key2a: 'value2a'}
     }]
   }]
-  
+
   var expected = {'key0': [{'key1': [[[{'key2': [{'a': 'value2'}, {'a': 'dummy'}]}]]]}]}
-  
+
   result = Mingo.find(data, {'key0.key1.key2': 'value'}, {'key0.key1.key2.a': 1}).first()
   t.deepEqual(result, expected, 'should project only selected object graph from nested arrays')
   t.notDeepEqual(data[0], result, 'should not modify original')
